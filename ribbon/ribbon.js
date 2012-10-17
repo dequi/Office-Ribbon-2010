@@ -129,6 +129,7 @@
 			
 			ribObj.find('.ribbon-section').each(function(index) {
 				$(this).after('<div class="ribbon-section-sep"></div>');
+				if($(this).hasClass("right")) $(this).next().addClass("right");
 			});
 
 			ribObj.find('div').attr('unselectable', 'on');

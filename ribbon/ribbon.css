@@ -215,6 +215,10 @@ body
 	height: 82px;
 }
 
+#ribbon .right {
+	float:right !important;
+}
+
 #ribbon .ribbon-section-sep
 {
 	border-left: 1px solid #E0E0E0;
