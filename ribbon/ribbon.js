@@ -1,5 +1,15 @@
 (function( $ ){
-	$.fn.ribbon = function(id) {
+	$.fn.ribbon = function(options) {
+
+		 var defaults = {
+                timeout	  : 0
+			};
+            options = $.extend(defaults, options);
+
+		console.log(options.timeout);
+
+		var id=null;
+
 		if (!id) {
 			if (this.attr('id')) {
 				id = this.attr('id');
@@ -9,9 +19,7 @@
 		var that = function() { 
 			return thatRet;
 		};
-		
-		
-		
+				
 		var thatRet = that;
 		
 		that.selectedTabIndex = -1;
@@ -77,8 +85,20 @@
 						that.switchToTabByIndex(index);
 					});
 				}
-				
-				
+
+
+				if( options.timeout > 0 ){
+					var timer;
+					thisTabHeader.hover(
+						function(event){
+							timer = setTimeout(function(){
+								event.currentTarget.click();
+							}, options.timeout);
+						},
+						function(){
+							clearTimeout(timer);
+						});
+				}
 				
 				$(this).hide();
 			});
