@@ -338,6 +338,21 @@ body
 	display: none;
 }
 
+#ribbon .ribbon-button .ribbon-icon.ribbon-overlay {
+    margin: auto;
+    position: absolute;
+}
+
+#ribbon .ribbon-button-small .ribbon-icon.ribbon-overlay {
+	top: 5px;
+    left: 2px;
+}
+
+#ribbon .ribbon-button-large .ribbon-icon.ribbon-overlay {
+	top: 5px;
+    left: 13px;
+}
+
 #ribbon .ribbon-button-large .ribbon-icon.ribbon-normal
 {
 	display: block;
