@@ -59,9 +59,17 @@
 						that.goToBackstage();
 					});
 				} else {
+
+					$($(this).attr("class").split(" ")).each(function(){
+						if(this.match(/^color-/))
+							thisTabHeader.addClass(this.toString());
+					});
+
 					if (that.selectedTabIndex==-1) {
 						that.selectedTabIndex = index;
 						thisTabHeader.addClass('sel');
+
+						
 					}
 					
 					thisTabHeader.click(function() {
