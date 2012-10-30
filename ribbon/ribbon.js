@@ -75,7 +75,7 @@
 			});
 			
 			ribObj.find('.ribbon-button').each(function(index) {
-				var title = $(this).find('.button-title');
+				var title = $(this).find('>.button-title');
 				title.detach();
 				$(this).append(title);
 				
@@ -97,6 +97,10 @@
 				if ($(this).find('.ribbon-disabled').length==0) {
 					$(this).find('.ribbon-normal').addClass('ribbon-disabled');
 					$(this).find('.ribbon-normal').addClass('ribbon-implicit-disabled');
+				}
+				if ($(this).find('.ribbon-sub-menu').length>0) {
+					if($(this).hasClass('ribbon-button-small')) $(this).addClass('arrow-down-small');
+					else if($(this).hasClass('ribbon-button-large')) $(this).addClass('arrow-down-large');
 				}
 				
 				$(this).tooltip({

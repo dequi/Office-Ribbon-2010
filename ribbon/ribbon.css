@@ -15,6 +15,14 @@ body
 	behavior: url(/PIE.htc);
 }
 
+#ribbon_back
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
 #ribbon
 {
 	font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
@@ -27,13 +35,10 @@ body
 	-webkit-box-shadow: #8b9097 0px 1px 3px;
 	-moz-box-shadow: #8b9097 0px 1px 3px;
 	box-shadow: #8b9097 0px 1px 3px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	behavior: url(/PIE.htc);
 	z-index: 25;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+	/*position: fixed;*/
 	height: 135px;
 }
 
@@ -75,6 +80,48 @@ body
 #ribbon.backstage .ribbon-tab-header
 {
 	border-bottom: 1px solid #1f48a1;
+}
+
+#ribbon .ribbon-sub-menu {
+	position: absolute;
+	background: #fff;
+	-webkit-border-radius: 4px 4px 0px 0px;
+	-moz-border-radius: 4px 4px 0px 0px;
+	border-radius: 3px;
+	-webkit-box-shadow: #c6c9cd 1px 1px 3px;
+	-moz-box-shadow: #c6c9cd 1px 1px 3px;
+	box-shadow: #c6c9cd 1px 1px 3px;
+	border: 1px solid #ccc;
+	z-index: 1000;
+	width: auto;
+	padding: 2px;
+	white-space: nowrap;
+	display: none;
+	top:80px;
+	margin-left:-7px;
+}
+
+#ribbon .ribbon-button-small .ribbon-sub-menu {
+	top:23px !important;
+	margin-left:-5px !important;
+}
+
+.ribbon-sub-menu .ribbon-button-large {
+	float:left;
+}
+
+#ribbon .arrow-down-large {
+	background-image: url('arrow_large.png') !important;
+	background-repeat: no-repeat !important;
+	background-position: center bottom !important;
+	padding-bottom:14px !important;
+}
+
+#ribbon .arrow-down-small {
+	background-image: url('arrow_small.png') !important;
+	background-repeat: no-repeat !important;
+	background-position: right center !important;
+	padding-right:12px !important;
 }
 
 #ribbon .ribbon-tab-header:hover
@@ -142,14 +189,14 @@ body
 
 #ribbon .ribbon-tab
 {
-	height: 80px;
+	height: 92px;
 	padding: 5px;
 	margin-top: 5px;
 	border-top: 1px solid #b6babf;
 	background: #FFF url('rib-back.png') repeat-x bottom;
 	background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#eaedf1));
 	background: -moz-linear-gradient(#ffffff, #eaedf1); /*-pie-background: linear-gradient(#ffffff, #eaedf1);*/
-	overflow: hidden;
+	/*overflow: hidden;*/
 	min-width: 500px;
 	behavior: url(/PIE.htc);
 	z-index: 30;
@@ -172,7 +219,7 @@ body
 	background-image:-webkit-gradient(linear, left bottom, right bottom, color-stop(15%,#4488e5), color-stop(100%,#ffffff));
 	
 	
-	overflow: hidden;
+	/*overflow: hidden;*/
 	min-width: 500px;
 	z-index: 30;
 }
@@ -212,7 +259,7 @@ body
 {
 	float: left;
 	position: relative;
-	height: 82px;
+	height: 94px;
 }
 
 #ribbon .right {
@@ -224,7 +271,7 @@ body
 	border-left: 1px solid #E0E0E0;
 	border-right: 1px solid #fff;
 	margin: 0 5px;
-	height: 75px;
+	height: 92px;
 	position: relative;
 	width: 0;
 	float: left;
@@ -253,6 +300,7 @@ body
 	height: 14px;
 	padding: 3px 4px;
 	text-align: left;
+	position: relative;
 
 }
 
@@ -268,8 +316,8 @@ body
 
 #ribbon .ribbon-button-large .button-title
 {
-	clear: left;
-	display: block;
+	/*clear: left;
+	display: block; */
 }
 
 #ribbon .ribbon-button-large .ribbon-icon
@@ -295,12 +343,12 @@ body
 	display: block;
 }
 
-#ribbon .ribbon-button:hover .ribbon-icon.ribbon-normal
+#ribbon .ribbon-button:hover>.ribbon-icon.ribbon-normal
 {
 	display: none;
 }
 
-#ribbon .ribbon-button-large:hover .ribbon-icon.ribbon-hot
+#ribbon .ribbon-button-large:hover>.ribbon-icon.ribbon-hot
 {
 	display: block;
 }
@@ -309,7 +357,7 @@ body
 	display: inline;
 }
 
-#ribbon .ribbon-button-small:hover .ribbon-icon.ribbon-hot
+#ribbon .ribbon-button-small:hover>.ribbon-icon.ribbon-hot
 {
 	display: inline;
 }
@@ -328,7 +376,7 @@ body
 	cursor: pointer;
 }
 
-#ribbon .ribbon-button.disabled .ribbon-icon, #ribbon .ribbon-button.disabled:hover .ribbon-icon
+#ribbon .ribbon-button.disabled .ribbon-icon, #ribbon .ribbon-button.disabled:hover>.ribbon-icon
 {
 	display: none;
 }
@@ -365,7 +413,7 @@ body
 {
 	font-family: "Segoe UI" , Verdana, Tahoma, Helvetica, sans-serif;
 	font-size: 10pt;
-	position: fixed;
+	position: absolute;
 	z-index: 5000;
 	border: 1px solid #8b9097;
 	background-color: #e5e5f0;
@@ -380,5 +428,5 @@ body
 	-moz-border-radius: 2px 2px 2px 2px;
 	border-radius: 2px 2px 2px 2px;
 	width: 200px;
-	top: 150px !important;
+	/*top: 150px !important;*/
 }
