@@ -292,6 +292,7 @@ body
 	text-align: center;
 	height: 58px;
 	min-width: 44px;
+	max-width: 60px;
 	float: left;
 }
 
@@ -338,19 +339,33 @@ body
 	display: none;
 }
 
+#ribbon .ribbon-button .ribbon-icon {
+	position: absolute;
+}
+
 #ribbon .ribbon-button .ribbon-icon.ribbon-overlay {
     margin: auto;
     position: absolute;
+    bottom:0;
+    right: 0;
+    z-index: 100;
 }
 
-#ribbon .ribbon-button-small .ribbon-icon.ribbon-overlay {
-	top: 5px;
-    left: 2px;
+#ribbon .ribbon-button .ribbon-icon-frame {
+	margin:auto;
+	position:relative;
 }
 
-#ribbon .ribbon-button-large .ribbon-icon.ribbon-overlay {
-	top: 5px;
-    left: 13px;
+#ribbon .ribbon-button-large .ribbon-icon-frame{
+	height:32px;
+	width:32px;
+}
+
+#ribbon .ribbon-button-small .ribbon-icon-frame{
+	height:16px;
+	width:16px;
+	float:left;
+	margin: -1px 5px 0 1px;
 }
 
 #ribbon .ribbon-button-large .ribbon-icon.ribbon-normal

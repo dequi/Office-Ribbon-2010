@@ -102,7 +102,8 @@
 					if($(this).hasClass('ribbon-button-small')) $(this).addClass('arrow-down-small');
 					else if($(this).hasClass('ribbon-button-large')) $(this).addClass('arrow-down-large');
 				}
-				if ($(this).find('.ribbon-overlay'))
+
+				$(this).find(">.ribbon-icon").wrapAll('<div class="ribbon-icon-frame" />');
 				
 				$(this).tooltip({
 					bodyHandler: function () {
