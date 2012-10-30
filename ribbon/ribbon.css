@@ -110,6 +110,10 @@ body
 	float:left;
 }
 
+#ribbon .ribbon-sub-menu .ribbon-button-small {
+	margin:0 !important;
+}
+
 #ribbon .arrow-down-large {
 	background-image: url('arrow_large.png') !important;
 	background-repeat: no-repeat !important;
@@ -302,7 +306,7 @@ body
 	padding: 3px 4px;
 	text-align: left;
 	position: relative;
-
+	margin:3px 0;
 }
 
 #ribbon .ribbon-button .button-help

@@ -104,6 +104,15 @@
 				}
 
 				$(this).find(">.ribbon-icon").wrapAll('<div class="ribbon-icon-frame" />');
+
+				if($(this).hasClass("ribbon-button-small") && !$(this).parent().hasClass("ribbon-sub-menu")) {
+					$(this).addClass("sub-section");
+				}
+
+				if(!$(this).next().hasClass("ribbon-button-small") && $(this).hasClass("sub-section") && $(this).next().index()!=1) {
+					$(".sub-section").wrapAll('<div style="float:left;" />');
+					$(".sub-section").removeClass("sub-section");
+				}
 				
 				$(this).tooltip({
 					bodyHandler: function () {
