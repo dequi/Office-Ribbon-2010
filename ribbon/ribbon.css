@@ -113,6 +113,7 @@ body
 
 #ribbon .ribbon-sub-menu .ribbon-button-small {
 	margin:0 !important;
+	padding-right:32px !important;
 }
 
 #ribbon .arrow-down-large {
@@ -431,7 +432,6 @@ body
 #ribbon .ribbon-button-small
 {
 	height: 14px;
-	padding: 3px 4px;
 	text-align: left;
 	position: relative;
 	margin:3px 0;
