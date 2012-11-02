@@ -6,8 +6,6 @@
 			};
             options = $.extend(defaults, options);
 
-		console.log(options.timeout);
-
 		var id=null;
 
 		if (!id) {
