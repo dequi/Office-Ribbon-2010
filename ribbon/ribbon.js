@@ -1,5 +1,13 @@
 (function( $ ){
-	$.fn.ribbon = function(id) {
+	$.fn.ribbon = function(options) {
+
+		 var defaults = {
+                timeout	  : 0
+			};
+            options = $.extend(defaults, options);
+
+		var id=null;
+
 		if (!id) {
 			if (this.attr('id')) {
 				id = this.attr('id');
@@ -9,9 +17,7 @@
 		var that = function() { 
 			return thatRet;
 		};
-		
-		
-		
+				
 		var thatRet = that;
 		
 		that.selectedTabIndex = -1;
@@ -34,6 +40,7 @@
 		
 			ribObj = $('#'+id);
 			ribObj.find('.ribbon-window-title').after('<div id="ribbon-tab-header-strip"></div>');
+			
 			var header = ribObj.find('#ribbon-tab-header-strip');
 			
 			ribObj.find('.ribbon-tab').each(function(index) {
@@ -58,9 +65,17 @@
 						that.goToBackstage();
 					});
 				} else {
+
+					$($(this).attr("class").split(" ")).each(function(){
+						if(this.match(/^color-/))
+							thisTabHeader.addClass(this.toString());
+					});
+
 					if (that.selectedTabIndex==-1) {
 						that.selectedTabIndex = index;
 						thisTabHeader.addClass('sel');
+
+						
 					}
 					
 					thisTabHeader.click(function() {
@@ -68,14 +83,42 @@
 						that.switchToTabByIndex(index);
 					});
 				}
-				
-				
+
+
+				if( options.timeout > 0 ){
+					var timer;
+					thisTabHeader.hover(
+						function(event){
+							timer = setTimeout(function(){
+								event.currentTarget.click();
+							}, options.timeout);
+						},
+						function(){
+							clearTimeout(timer);
+						});
+				}
 				
 				$(this).hide();
 			});
+
+			ribObj.find('.ribbon-section').each(function(){
+				var i = 0;
+				$(">.ribbon-button-small",this).each(function(index){
+					$(this).addClass("hede");
+					i++;
+					if($(this).next().hasClass("ribbon-button-large") || i%3==0) {
+						$(".hede").wrapAll('<div style="float:left;" />');
+						$(".hede").removeClass("hede");
+						i=0;
+					}
+
+				});
+				$(".hede").wrapAll('<div style="float:left;" />');
+				$(".hede").removeClass("hede");
+			});
 			
 			ribObj.find('.ribbon-button').each(function(index) {
-				var title = $(this).find('.button-title');
+				var title = $(this).find('>.button-title');
 				title.detach();
 				$(this).append(title);
 				
@@ -98,6 +141,27 @@
 					$(this).find('.ribbon-normal').addClass('ribbon-disabled');
 					$(this).find('.ribbon-normal').addClass('ribbon-implicit-disabled');
 				}
+				if ($(this).find('.ribbon-sub-menu').length>0) {
+					if($(this).hasClass('ribbon-button-small')) $(this).addClass('arrow-down-small');
+					else if($(this).hasClass('ribbon-button-large')) $(this).addClass('arrow-down-large');
+
+					el.click(function(){
+						if(el.isEnabled()) {
+							$(".ribbon-sub-menu",this).show();
+							$(".ribbon-sub-menu",this).hover(
+								function(){
+
+								},
+								function(){
+									$(this).hide();
+								}
+							);
+						}
+					})
+
+				}
+
+				$(this).find(">.ribbon-icon").wrapAll('<div class="ribbon-icon-frame" />');
 				
 				$(this).tooltip({
 					bodyHandler: function () {
@@ -129,6 +193,7 @@
 			
 			ribObj.find('.ribbon-section').each(function(index) {
 				$(this).after('<div class="ribbon-section-sep"></div>');
+				if($(this).hasClass("right")) $(this).next().addClass("right");
 			});
 
 			ribObj.find('div').attr('unselectable', 'on');
